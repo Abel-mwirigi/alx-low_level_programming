@@ -9,25 +9,15 @@
 
 char *_strcat(char *dest, char *src)
 {
-	int i;
-	int j;
-	int l;
-	char *k;
-
+int i, k;
 	for (i = 0; dest[i] != '\0'; i++)
 	{
 	}
-	for (j = 0; src[j] != '\0'; j++)
+	for (k = 0; src[k] != '\0'; k++)
 	{
+		dest[i] = src[k];
+		i++;
 	}
-	k = malloc((i + j) * sizeof(char));
-		for (l = 0; l <= i + j; l++)
-		{
-			k[l] = dest[l];
-		}
-		for (i = 0; i <= j; i++)
-		{
-			k[l] = src[i];
-		}
-	return (k);
+	dest[i] = '\0';
+	return (dest);
 }
