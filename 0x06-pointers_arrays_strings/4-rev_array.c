@@ -1,27 +1,23 @@
-#include"main.h"
-#include"_putchar.c"
+#include <stdio.h>
+#include "main.h"
+#include <string.h>
 
 /**
- * reverse_array - reverses elements
- * @a:string
- * @n:elements of the array
- * Return:void
+ * reverse_array - function that reverses an array passed
+ * to it
+ * @a: parameter to be operated upon
+ * @n: the number of elements of the array
  */
 
 void reverse_array(int *a, int n)
 {
+	int t, c = 0;
 
-	int i;
-	int *j = malloc(n * sizeof(int));
-	int count = 0;
-
-	for (i = n - 1; i >= 0; i--)
+	n = n - 1;
+	while (c <= n)
 	{
-		j[count] = a[i];
-		count++;
-	}
-	for (i = 0; i < n; i++)
-	{
-		a[i] = j[i];
+		t = a[c];
+		a[c++] = a[n];
+		a[n--] = t;
 	}
 }
