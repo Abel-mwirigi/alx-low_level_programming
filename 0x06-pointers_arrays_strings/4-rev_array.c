@@ -10,15 +10,18 @@
 
 void reverse_array(int *a, int n)
 {
-	int len = 0;
-	int i;
 
-	for (n = 0; a[n] != '\0'; n++)
+	int i;
+	int *j = malloc(n * sizeof(int));
+	int count = 0;
+
+	for (i = n - 1; i >= 0; i--)
 	{
-		len = n++;
+		j[count] = a[i];
+		count++;
 	}
-	for (i = len; i >= 0; i--)
+	for (i = 0; i < n; i++)
 	{
-		_putchar(a[i] + '0');
+		a[i] = j[i];
 	}
 }
