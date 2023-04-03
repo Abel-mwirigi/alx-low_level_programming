@@ -1,5 +1,5 @@
 #include "main.h"
-
+#define NULL 0
 /**
  * *_strpbrk -  searches a string for
  * any of a set of bytes
@@ -19,9 +19,10 @@ char *_strpbrk(char *s, char *accept)
 		{
 			if (s[i] == accept[j])
 			{
-				_putchar(j);
+				s = &s[i];
+				return (s);
 			}
 		}
 	}
-	return (s);
+	return (NULL);
 }
