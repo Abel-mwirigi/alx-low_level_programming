@@ -30,5 +30,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		ar[k] = s1[k];
 	for (l = 0; l < n; l++)
 		ar[k + l] = s2[l];
+	ar[k + l] = s2[l];
 	return (ar);
 }
