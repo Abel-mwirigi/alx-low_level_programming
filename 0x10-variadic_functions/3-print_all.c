@@ -11,7 +11,7 @@ void print_all(const char * const format, ...)
 {
 	va_list list;
 	int i = 0;
-	char *s;
+	char *s, *str = "";
 
 	va_start(list, format);
 	if (format)
@@ -21,29 +21,26 @@ void print_all(const char * const format, ...)
 			switch (format[i])
 			{
 				case 'c':
-					printf("%c", va_arg(list, int));
+					printf("%s%c", str, va_arg(list, int));
 					break;
 				case 'i':
-					printf("%d", va_arg(list, int));
+					printf("%s%d", str, va_arg(list, int));
 					break;
 				case 'f':
-					printf("%f", va_arg(list, double));
+					printf("%s%f", str, va_arg(list, double));
 					break;
 				case 's':
 					s = va_arg(list, char *);
 					if (s == NULL)
 						s = "(nil)";
-					printf("%s", s);
+					printf("%s%s", str, s);
 					break;
 				default:
 					i++;
 					continue;
 			}
-			if (format[i + 1])
-				printf(", ");
+			str = ", ";
 			i++;
 		}
 	}
-		va_end(list);
-		printf("\n");
 }
