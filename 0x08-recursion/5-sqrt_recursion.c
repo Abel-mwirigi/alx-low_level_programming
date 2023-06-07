@@ -1,19 +1,38 @@
 #include"main.h"
+#include<stdio.h>
+#include<stdlib.h>
 
 /**
- * _srt - finds the squareroot of a number
+ * _sqrt - finds the squareroot of a number
  * @n:number passed
- * @j:tester
- * Return:srt
+ * @start:the first index
+ * @end:the last index
+ * Return:sqrt
  */
 
-int _srt(int n, int j)
+int _sqrt(int n, int start, int end)
 {
-	if (j * j == n)
-		return (n);
-	if (j * j > n)
+	int mid;
+	int sqr;
+	if (start > end)
+	{
 		return (-1);
-	return (_srt(n, j + 1));
+	}
+	mid = (start + end) / 2;
+	sqr = mid * mid;
+
+	if (sqr == n)
+	{
+		return (mid);
+	}
+	else if (sqr > n)
+	{
+		return (_sqrt(n, start, mid - 1));
+	}
+	else
+	{
+		return (_sqrt(n, mid + 1, end));
+	}
 }
 
 /**
@@ -28,5 +47,5 @@ int _sqrt_recursion(int n)
 	{
 		return (0);
 	}
-	return (_srt(n, 1));
+	return (_sqrt(n, 0, n));
 }
