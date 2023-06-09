@@ -10,10 +10,13 @@
 
 int main(int argc, char __attribute__((unused)) *argv[])
 {
-	int i, num;
+	int i;
+	int m;
 
 	for (i = 0; i < argc; i++)
-		num = i;
-	printf("%d\n", num);
+	{
+		m = i;
+	}
+	printf("%d\n", m);
 	exit(EXIT_SUCCESS);
 }
