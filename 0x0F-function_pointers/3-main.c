@@ -1,4 +1,7 @@
 #include "3-calc.h"
+#include<stdlib.h>
+#include<stdio.h>
+#include<string.h>
 
 /**
  * main - main program
@@ -10,7 +13,8 @@
 int main(int argc, char *argv[])
 {
 	int a, b;
-	int (*f)(int, int);
+	char *op;
+	int (*f)(int, int) = get_op_func(op);
 
 	if (argc != 4)
 	{
@@ -19,13 +23,13 @@ int main(int argc, char *argv[])
 	}
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
-	f = get_op_func(argv[2]);
+	op = argv[2];
 	if (f == NULL)
 	{
 		printf("Error\n");
 		exit(99);
 	}
-	if ((strcmp(argv[2], "/") == 0 || strcmp(argv[2], "%") == 0) && b == 0)
+	if ((op[0] == '/' || op[0] == '%') && b == 0)
 	{
 		printf("Error\n");
 		exit(100);
