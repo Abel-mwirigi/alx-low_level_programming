@@ -13,14 +13,14 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	unsigned long int index;
 	hash_node_t *node;
 	/*if any is empty or NULL the function returns NULL*/
-	if (!ht || !key || !*key)
+	if (ht == NULL || key == NULL || *key == '\0')
 		return (NULL);
 	/*gets the index of the desired key*/
 	index = key_index((unsigned char *)key, ht->size);
 	node = ht->array[index];
 
 	/*traverses the linked list to find node with the matching key*/
-	while (node)
+	while (node != NULL)
 	{
 		if (strcmp(node->key, key) == 0)
 			return (node->value);
